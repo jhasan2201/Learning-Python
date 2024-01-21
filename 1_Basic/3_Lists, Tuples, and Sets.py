@@ -58,14 +58,14 @@ print(sum(nums))
 print(courses.index('Physics'))
 # print(courses.index('Artt'))
 
-print('Math' in courses)
-print('Art' in courses)
-
+# print('Math' in courses)
+# print('Art' in courses)
+#
 for item in courses:
     print(item)
 
-# for index,course in enumerate(courses):
-#     print(index,course)
+for index,course in enumerate(courses):
+    print(index,course)
 
 for i,x in enumerate(courses):
     print(i,x)
@@ -83,31 +83,40 @@ print(course_str)
 new_list = course_str.split(' - ')
 print(new_list)
 
+
+# -------------------------------------------------
+
 tuple_1 = ('Art', 'CompSci', 'History', 'Physics')
 tuple_2 = tuple_1
 
-#tuple_1[0] = 'Artt'
+# tuple_1[0] = 'Artt'
 
 print(tuple_1)
 print(tuple_1)
 
-cs_course = {'History', 'Physics','DLD','TOC','Physics'}
+cs_course = {'History', 'Physics','DLD','TOC','Physics','Math'}
 art_course = {'History','Design','Math'}
 
 print(cs_course)
 print('Physics' in cs_course)
 
 print(cs_course.intersection(art_course))
+print(cs_course.difference(art_course))
 print(cs_course.union(art_course))
 
+#list---------
 empty_list = []
 empty_list = list()
 
-empty_tuple = ()
-empty_tuple = tuple()
-
-empty_set = set()
-
+#tuple -----------
+# empty_tuple = ()
+# empty_tuple = tuple()
 
 
-
+#set------------
+# # this is invalid(this is dictionary) :: empty-set = {}
+# empty_set = set()
+#
+#
+#
+#

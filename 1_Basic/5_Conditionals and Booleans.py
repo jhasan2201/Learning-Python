@@ -3,7 +3,7 @@ if True :
     print('Conditional is true')
 
 if False :
-    print('Conditional is true')
+    print('Conditional is false')
 
 language = 'Java'
 

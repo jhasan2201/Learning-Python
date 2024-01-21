@@ -1,5 +1,8 @@
 
-student = {'name':'John','age':25,'courses':['Math','CompSci'],1:'Jehan'}
+student = {'name':'John',
+           'age':25,
+           'courses':['Math','CompSci'],
+           1:'Jehan'}
 
 print(student)
 print(student['name'])
@@ -23,6 +26,7 @@ print(student)
 
 age = student.pop('age')
 print(age)
+print(student)
 
 del student['Phone']
 
