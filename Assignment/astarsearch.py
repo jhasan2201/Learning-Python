@@ -2,7 +2,7 @@
 coordinates = {}
 adjList = {}
 
-with open('input2.txt', 'r') as f:
+with open('input.txt', 'r') as f:
     vertex = int(f.readline())
     for i in range(vertex):
         lineStr = f.readline().split(' ')
@@ -25,15 +25,16 @@ class state:
     def __init__(self, nid, g, parent):
         self.nid=nid
         self.g = g
-        self.f = g + heuristicFun(coordinates[nid][0], coordinates[nid][0])
+        self.f = g + heuristicFun(coordinates[nid][0], coordinates[nid][1])
         self.parent = parent
 
-    def __it__(self,other):
-        return self.f < other.f
+    # def __it__(self,other):
+    #     return self.f < other.f
 
     def __lt__(self,other):
         return self.f < other.f
 
+ans = []
 
 startState = state(startNid[0], 0, None)
 
@@ -43,14 +44,20 @@ import heapq
 q = []
 heapq.heappush(q,startState)
 
-import time
-
 while q:
     currStage = heapq.heappop(q)
     if (currStage.nid == goalNid[0]):
+        while currStage is not None:
+            ans.append(currStage.nid)
+            currStage = currStage.parent
         break
 
     for neighbour in adjList[currStage.nid]:
         gnew = currStage.g + neighbour[1]
-        newState = state(neighbour[0], gnew, currStage.nid)
+        newState = state(neighbour[0], gnew, currStage)
         heapq.heappush(q, newState)
+
+
+ans.reverse()
+for x in ans:
+    print(x)
