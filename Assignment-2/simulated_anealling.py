@@ -17,7 +17,7 @@ startState = []
 
 goalState = [[0,1,2],[3,4,5],[6,7,8]]
 
-with open('input.txt','r') as f:
+with open('input2.txt','r') as f:
     for i in range(3):
         lineStr = f.readline().split(' ')
         arr = []
@@ -64,7 +64,7 @@ def randomSelectionSuccessor(state):
                 return random.choice(choiceList)
     return state
 
-print(randomSelectionSuccessor(startState))
+# print(randomSelectionSuccessor(startState))
 
 def schedule(t):
     if t >= 1000:
@@ -76,23 +76,25 @@ def schedule(t):
 def simulatedAnnealing(startState):
     curr = startState
     random.seed(100)
-    for t in range(1, 1001):
+    for t in range(1,1001):
         print(curr)
         T = schedule(t)
-        if T == 0:
-            return curr
+        if T==0 :
+          return curr
 
         next = randomSelectionSuccessor(curr)
 
-        delE = min(heu1(curr), heu2(curr)) - min(heu1(next), heu2(next))
-        if (delE > 0):
+        delE = min(heu1(curr),heu2(curr)) - min(heu1(next),heu2(next))
+        if(delE > 0):
             curr = next
-        if (random.random() > math.exp(delE / T)):
+            if(curr==goalState):
+                return curr
+        if(random.random() > math.exp(delE/T)):
             curr = next
-
+            if(curr==goalState):
+                return curr
 
         # time.sleep(3)
     return curr
 
-
-simulatedAnnealing(startState)
+print(simulatedAnnealing(startState))

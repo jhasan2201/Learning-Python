@@ -105,6 +105,5 @@ def hillChilbing(startState):
 
     print(curr)
 
-print()
+print(hillChilbing(startState))
 
-hillChilbing(startState)

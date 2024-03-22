@@ -2,7 +2,7 @@
 coordinates = {}
 adjList = {}
 
-with open('input.txt', 'r') as f:
+with open('input2.txt', 'r') as f:
     vertex = int(f.readline())
     for i in range(vertex):
         lineStr = f.readline().split(' ')
