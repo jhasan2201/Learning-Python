@@ -90,6 +90,7 @@ def simulatedAnnealing(startState):
         if (random.random() > math.exp(delE / T)):
             curr = next
 
+
         # time.sleep(3)
     return curr
 
